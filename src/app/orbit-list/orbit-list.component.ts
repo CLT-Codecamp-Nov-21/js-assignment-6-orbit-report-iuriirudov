@@ -1,19 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Satellite } from '../satellite';
+import { Component, OnInit, Input } from "@angular/core";
+import { Satellite } from "../satellite";
 
 @Component({
-  selector: 'app-orbit-list',
-  templateUrl: './orbit-list.component.html',
-  styleUrls: ['./orbit-list.component.css']
+	selector: "app-orbit-list",
+	templateUrl: "./orbit-list.component.html",
+	styleUrls: ["./orbit-list.component.css"],
 })
-
 export class OrbitListComponent implements OnInit {
+	@Input() satellites: Satellite[];
+	constructor() {}
 
-  @Input() satellites: Satellite[];
-  constructor() { }
-
-  ngOnInit() {
-  }
+	ngOnInit() {}
 
 	sort(column: string): void {
 		// array.sort modifies the array, sorting the items based on the given compare function
@@ -26,5 +23,4 @@ export class OrbitListComponent implements OnInit {
 			return 0;
 		});
 	}
-
 }
